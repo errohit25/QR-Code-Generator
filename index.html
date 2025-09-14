@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code Gen</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="main-box">
+        <h1>Enter the TEXT or URL</h1>
+        <input type="text" id="qrtext" placeholder="Text or URL">
+        <div id="imgbox">
+            <img src="" id="qrimg">
+        </div>
+        <button type="submit" class="btn" onclick="generateqr()">QR code</button>
+        <button type="reset" id="new" onclick="newqr()">Make New</button>
+    </div>
+    <script>
+        let imgbox = document.getElementById("imgbox");
+        let qrimg = document.getElementById("qrimg");
+        let qrtext = document.getElementById("qrtext");
+
+        function generateqr() {
+            qrimg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrtext.value;
+
+            document.getElementById("qrtext").style.display = "none";
+            document.getElementById("new").style.display = "inline-block"
+            document.getElementById("imgbox").style.display = "inline-block"
+
+        }
+        function newqr() {
+            document.getElementById("imgbox").style.display = "none";
+            document.getElementById("qrtext").style.display = "inline-block"
+
+        }
+
+    </script>
+</body>
+
+
+</html>
